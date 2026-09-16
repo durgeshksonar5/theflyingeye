@@ -170,7 +170,10 @@
 
                 <!-- ==================== Start Header ==================== -->
 
-                <header class="hero-style1 bg-img background-position-center change-logo" data-logo="is-dark" data-background="assets/imgs/hero/hero1.jpg" data-overlay-dark="4">
+                <header class="hero-style1 change-logo" data-logo="is-dark" data-overlay-dark="4">
+                    <div class="hero-video">
+                        <iframe id="hero-youtube-bg" src="https://www.youtube.com/embed/PeLq1Ci797g?autoplay=1&mute=1&loop=1&playlist=PeLq1Ci797g&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&disablekb=1&fs=0&vq=hd2160&enablejsapi=1" title="Hero Background Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                     <div class="container v-align-between">
                         <div class="caption text-light">
                             <div class="row">
@@ -936,6 +939,35 @@
                 cursor.classList.remove("click");
             });
         });
+
+        // Initialize YouTube IFrame API to force 4K / HD quality and uninterrupted playback
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var heroPlayer;
+        function onYouTubeIframeAPIReady() {
+            heroPlayer = new YT.Player('hero-youtube-bg', {
+                events: {
+                    'onReady': function(event) {
+                        event.target.mute();
+                        if (typeof event.target.setPlaybackQuality === 'function') {
+                            event.target.setPlaybackQuality('hd2160');
+                        }
+                        event.target.playVideo();
+                    },
+                    'onStateChange': function(event) {
+                        if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+                            event.target.playVideo();
+                        }
+                        if (typeof event.target.setPlaybackQuality === 'function') {
+                            event.target.setPlaybackQuality('hd2160');
+                        }
+                    }
+                }
+            });
+        }
     </script>
 
 </body>

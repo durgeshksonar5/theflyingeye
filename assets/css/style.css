@@ -9015,6 +9015,33 @@ body.light .theme-icon .moon {
 
 .hero-style1 {
     position: relative;
+    overflow: hidden;
+}
+
+.hero-style1 .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none !important;
+    user-select: none;
+    overflow: hidden;
+    background: #000;
+}
+
+.hero-style1 .hero-video iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-width: 177.78vh;
+    min-height: 100%;
+    transform: translate(-50%, -50%) scale(1.35);
+    pointer-events: none !important;
+    border: none;
 }
 
 .hero-style1 .container {
