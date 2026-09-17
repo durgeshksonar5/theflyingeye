@@ -191,16 +191,28 @@ body.showcase-slider-cg {
     color: #F11111 !important;
 }
 
-.main-colorbg4 {
-    background-color: #F11111 !important;
+.navbar .logo {
+    display: inline-flex;
+    align-items: center;
 }
 
-.logo.is-light {
-    content: url("../imgs/logo-dark.svg");
+.theflyingeye-logo,
+.navbar .logo img {
+    height: 56px;
+    max-height: 58px;
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+    display: block;
 }
 
-.logo.is-dark {
-    content: url("../imgs/logo-light.svg");
+.f-logo img {
+    height: 62px;
+    max-height: 65px;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    display: block;
 }
 
 .ui-lines span {
