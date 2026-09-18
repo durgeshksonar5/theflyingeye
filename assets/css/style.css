@@ -10264,11 +10264,25 @@ body.light .theme-icon .moon {
 /* Services
 -----------------------------------------------------------------*/
 
+.services-style1 .row {
+    align-items: stretch;
+}
+
+.services-style1 [class*="col-"] {
+    display: flex;
+}
+
 .services-style1 .service-card {
     background: #fff;
     padding: 50px 40px 35px;
-    min-height: 500px;
+    min-height: 520px;
     height: 100%;
+    width: 100%;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
 .services-style1 .service-card span,
